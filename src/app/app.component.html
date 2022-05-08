@@ -1,0 +1,29 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+        <app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page"  (onCloseSidenav)="onClose($event, sidenav)"  [loggedInUser]="loggedInUser" (onLogout)="logout($event)"></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <div fxHide.gt-xs>
+                <button mat-icon-button (click)="onToggleSidenav(sidenav)">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div>Csempebolt</div>
+        
+            <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+                <ul fxLayout fxLayoutGap="10px" class="navigation">
+                    <li><a routerLink="/main"><mat-icon>home</mat-icon><div>Főoldal</div></a></li>
+                    <li *ngIf="(loggedInUser)"><a routerLink="/products"><mat-icon>shopping_cart</mat-icon><div>Termékek</div></a></li>
+                    <li *ngIf="!(loggedInUser)"><a routerLink="/login"><mat-icon>login</mat-icon><div>Bejelentkezés</div></a></li>
+                    <li *ngIf="(loggedInUser)"><a routerLink="/profile"><mat-icon>supervisor_account</mat-icon><div>Profil</div></a></li>
+                    <li><a routerLink="/information"><mat-icon>info</mat-icon><div>Információ</div></a></li>
+                    <li *ngIf="(loggedInUser)"><a routerLink="/login" (click)="logout()"><mat-icon>logout</mat-icon><div>Kijelentkezés</div></a></li>
+                </ul>
+            </div>
+        </mat-toolbar>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,25 @@
+<div>
+    <div *ngIf="products.length">
+        <table>
+            <tr>
+                <th></th>
+                <th>Kép</th>
+                <th>Név</th>
+                <th>Ár</th>
+                <th>Vásárlás</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let prod of products; let i = index;">
+                <td>{{loadImage(prod)}}</td>
+                <td><img [src]="loadedImage"/></td>
+                <td>{{prod.nev}}</td>
+                <td>{{prod.ar}}</td>
+                <td><button (click)="clock()">Vásárol</button></td>
+            </tr>
+        </table>
+        <div *ngIf="cl">Sikeres vásárlás, gratulálok! <button (click)="afterclick()">Rendben</button></div>
+    </div>
+
+    
+    
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "csempebolt-bf46c": {
+      "hosting": {
+        "Csempebolt": [
+          "csempebolt-bf46c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "csempebolt-bf46c"
+  }
+}
